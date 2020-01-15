@@ -1,0 +1,36 @@
+{% extends "main.twig" %}
+
+{% block body %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Название</th>
+            <th scope="col">Бюджет</th>
+            <th scope="col">Заказчик</th>
+        </tr>
+    </thead>
+   
+    <tbody>    
+    {% for job in jobs %}
+    <tr>
+    	<td><a href="https://freelancehunt.com/project/a/{{ job.id }}.html" target="_blank">{{ job.name }}</a></td>
+    	<td>{{ job.budget }} {{ job.currency }}</td>
+    	<td><a href="https://freelancehunt.com/employer/{{ job.customer.login }}.html" target="_blank">{{ job.customer.login }}</a></td>
+    </tr>                      
+    {% endfor %}    
+    </tbody>	
+</table>
+
+<nav aria-label="...">
+  <ul class="pagination">  
+  	<li class="page-item"><a class="page-link" href="/">Первая</a></li>
+  	  	 
+    {% for page in pages %}
+    	<li class="page-item {% if current_page == page %}active{% endif %}"><a class="page-link" href="/?page={{ page }}">{{ page }}</a></li>
+    {% endfor %}        
+  </ul>
+</nav>
+    
+    {{ total_count }}
+    
+{% endblock %}

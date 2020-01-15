@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	 <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <title>Quest</title>
+    	{% block head %}	
+        {% endblock %}
+    </head>
+    
+    <body>
+    
+    <div class="container">
+    
+    	<div class="row">
+        	<div class="col">
+        		<ul class="nav nav-pills justify-content-center">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/">Список заказов</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/skill_stats">Статистика открытых</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/budget_stats">Статистика бюджетов</a>
+                  </li>                  
+                </ul>
+        	</div>
+    	</div>
+    	
+        <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            {% block body %}	
+            {% endblock %}
+        </div>
+        <div class="col-1"></div>
+        </div>
+      
+	</div>        
+    </body>
+</html>

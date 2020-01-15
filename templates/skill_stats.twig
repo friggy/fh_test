@@ -1,0 +1,26 @@
+{% extends "main.twig" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}	
+<table class="table">
+    <thead>
+        <tr>
+			<th scope="col">#</th>
+            <th scope="col">Навык</th>
+            <th scope="col">Количество заказов</th>
+        </tr>
+    </thead>
+   
+    <tbody>    
+    {% for stat in stats %}
+    	<tr>
+			<th scope="row">{{ loop.index }}</th>
+            <td>{{ stat[0].name }}</td>
+            <td>{{ stat.c }}</td>
+        </tr>	      
+    {% endfor %}    
+    </tbody>	
+</table>
+{% endblock %}
