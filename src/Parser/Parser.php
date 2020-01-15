@@ -1,9 +1,9 @@
 <?php
 namespace App\Parser;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Job;
-use App\Skill;
-use App\Customer;
+use App\Model\Job;
+use App\Model\Skill;
+use App\Model\Customer;
 
 class Parser
 {           
@@ -69,11 +69,11 @@ class Parser
         $job->setDescription($data->description);
         $job->setStatus($data->status->id);
         
-        if($data->budget->amount)
-        $job->setBudget($data->budget->amount);
-        
-        if($data->budget->currency)
-        $job->setCurrency($data->budget->currency);
+        if(isset($data->budget))
+        {
+            $job->setBudget($data->budget->amount);                
+            $job->setCurrency($data->budget->currency);
+        }
         
         $job->setCreatedTime(time());
         
